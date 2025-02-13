@@ -67,15 +67,17 @@ public class Animal {
     }
 
     public void print(){
-        System.out.println("hello");
         System.out.printf("animal (name = " + this.name + ", mass=" +this.mass+", legs= "+this.legs+", status= "+this.isAlive+")");
+        System.out.println("\n");
     }
 
-
-    
-
-    
-
-
-
+    public boolean equals(Animal other){
+        if (this.mass == other.mass && this.name.equals(other.name) && this.legs == other.legs && 
+            this.isAlive == other.isAlive){
+                return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

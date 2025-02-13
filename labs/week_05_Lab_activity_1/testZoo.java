@@ -6,7 +6,7 @@ public class testZoo {
         Animal elephant = new Animal(50000, "elephant", 4);
         
         myZoo.addAnimal(snail);
-        myZoo.addAnimal(elephant);
+        myZoo.remove(elephant);
 
         boolean t = true;
         while (t == true) {
