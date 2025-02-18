@@ -1,26 +1,17 @@
 public class Zoo{
     private Animal[] cages;
+    private int numberOfAnimals;
     
     public Zoo(){
         cages = new Animal[10];
     }
 
     public boolean addAnimal(Animal new_animal){     
-        int counter = 0;
-        for (Animal animal : cages) {
-            if (animal != null){
-                counter++;
-            }
-        }   
-        if (counter == cages.length) {
-            Animal[] new_cages = new Animal[cages.length + (int) 0.5*cages.length];
-            this.cages = new_cages;
-        }
         for (int i = 0; i < cages.length; i++) {
-            if (cages[i] == null){
+            Animal cage = cages[i];
+            if (cage == null){
                 cages[i] = new_animal;
-                
-                System.out.println("The animal: "+new_animal.getName()+ " was placed in cage number: "+i);
+                numberOfAnimals++;
                 return true;
             }
         }
@@ -46,16 +37,7 @@ public class Zoo{
     }
 
     public int numberOfAnimals(){
-        int counter = 0;
-        for (int i = 0; i < this.cages.length; i++) {
-            if (this.cages != null){
-                counter++;
-            }
-            else {
-                break;
-            }
-        }
-        return counter;
+        return numberOfAnimals;
     }
 
     public float totalMass(){
