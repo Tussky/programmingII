@@ -30,6 +30,7 @@ public class Book{
             System.out.println("Book: "+ this.getTitle()+" has been borrowed.");
             return true;
         } else {
+            System.out.println("Book: "+ this.getTitle()+ " is already borrowed!");
             return false;
         }
     }
