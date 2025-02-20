@@ -38,4 +38,37 @@ public class Library {
         System.out.println(toAdd.getTitle() + "was succesffuly added");
         return true;
     }
+
+    public Book searchByTitle(String title) {
+        for (Book book : Books) {
+            if (book.getTitle().equals(title)){
+                System.out.println("Book found!");
+                return book;
+            }
+        }
+        System.out.println("Book not found!");
+        return null;
+    }
+
+    public Book searchByAuthor(String author) {
+        for (Book book : Books) {
+            if (book.getAuthor().equals(author)){
+                System.out.println("Book found!");
+                return book;
+            }
+        }
+        System.out.println("Book not found!");
+        return null;
+    }
+
+    public int countAvailableBooks() {
+        int counter = 0;
+        for (Book book : Books){
+            if (book.isBorrowed() == false) {
+                counter++;
+            }
+        }
+        System.out.println("Available books: "+counter);
+        return counter;
+    }
 }
