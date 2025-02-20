@@ -11,7 +11,7 @@ public class Peter extends Pastor{
   }
 
   @Override
-  public void doAdminstrativeTasks() {
+  public void doAdministrativeTasks() {
     System.out.println("I outsourced my duties to stephen");
   }
 }
