@@ -3,6 +3,20 @@ public class Book{
     private String author;
     private boolean isBorrowed;
 
+    public Book(String title, String author, boolean isBorrowed) {
+        this.title = title;
+        this.author = author;
+        this.isBorrowed = isBorrowed;
+    }
+
+    
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.isBorrowed = false;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -22,8 +36,9 @@ public class Book{
 
     public boolean returnBook(){
         if (this.isBorrowed == true){
-            isBorrowed == false;
+            isBorrowed = false;
             System.out.println("Book: "+ this.getTitle()+" has been returned.");
+            return true;
         }
         else {
             System.out.println("Book not borrowed... Cannot be returned.");
@@ -34,6 +49,9 @@ public class Book{
     @Override
     public String toString(){
         return "Title: " + this.getTitle() + ", Author: " + this.getAuthor() + ", Borrowed: " + this.isBorrowed;
+    }
+    public boolean isBorrowed() {
+        return isBorrowed;
     }
     
 }
