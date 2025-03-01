@@ -5,6 +5,7 @@ public class Salaried extends StaffMember{
 
     @Override
     public double pay() {
+        System.out.println("To be payed: "+this.payRate / 12);
         return this.payRate / 12;
     }
 }

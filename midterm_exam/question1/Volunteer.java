@@ -5,6 +5,7 @@ public class Volunteer extends StaffMember{
 
     @Override
     public double pay() {
+        System.out.println("Volunteers are not payed.");
         return 0;
     }
 }

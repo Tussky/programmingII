@@ -16,4 +16,9 @@ public abstract class StaffMember {
     }
 
     public abstract double pay();
+
+    @Override
+    public String toString() {
+        return (this.firstName + " " + this.lastName + ", id: " + this.id + ", payrate: "+this.payRate);
+    }
 }
