@@ -15,5 +15,5 @@ public abstract class StaffMember {
         this.payRate = payRate;
     }
 
-    public void pay(){};
+    public abstract double pay();
 }
