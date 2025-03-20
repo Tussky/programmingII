@@ -34,7 +34,6 @@ public class Quiz {
         try{
             File questionFile = new File(this.questionDir);
             Scanner scanner = new Scanner(questionFile);
-            ArrayList<ArrayList<String>> questions = new ArrayList<ArrayList<String>>();
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
                 ArrayList<String> temp = new ArrayList<String>(Arrays.asList(line.split(", ")));
@@ -53,17 +52,33 @@ public class Quiz {
     public void beginQuiz() {
         this.continueQuiz = true;
         Scanner input = new Scanner(System.in);
+        int counter = 0;
 
         while(this.continueQuiz){
-            Question iterQuestion = this.questions.get(0);
+            this.attempted++;
+            Question iterQuestion = this.questions.get(counter);
             System.out.println(iterQuestion.getQuestion());
             System.out.println("Your options are:" + iterQuestion.getOptions());
 
             String response = String.valueOf(input.nextLine());
             System.out.println(iterQuestion.validateAnswer(response));
-            this.continueQuiz=false;
+
+            if (iterQuestion.validateAnswer(response)){
+                this.score++;
+            }
+            
+            if (counter == this.questions.size()-1){
+                continueQuiz = false;
+                this.score();
+            }
+            else {
+                counter++;
+            }
         }
         input.close();
     }
-    public void endQuiz() {}
+
+    public void score(){
+        System.out.println("Final Score: " + Math.floor((double)this.score/this.attempted*100) + "%");
+    }
 }
