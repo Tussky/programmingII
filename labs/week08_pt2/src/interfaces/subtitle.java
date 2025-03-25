@@ -1,9 +1,9 @@
 package interfaces;
-public interface Subtitle {
-    Time getStarTime();
-    Time getendTime();
+public interface subtitle {
+    time getStarTime();
+    time getendTime();
     String getText();
-    void setStartTime(Time startTime);
-    void setEndTime(Time endTime);
+    void setStartTime(time startTime);
+    void setEndTime(time endTime);
     void setText(String Text);
 }

@@ -1,5 +1,5 @@
-package subtitles;
-public interface Time {
+package interfaces;
+public interface time {
     int getHH();
     int getMM();
     int getSS();
