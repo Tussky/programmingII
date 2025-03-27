@@ -1,5 +1,4 @@
-package interfaces;
-public interface time {
+public interface iTime {
     int getHH();
     int getMM();
     int getSS();

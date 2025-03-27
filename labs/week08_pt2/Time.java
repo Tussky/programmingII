@@ -1,5 +1,4 @@
-import interfaces.time;
-public class Time implements time {
+public class Time implements iTime {
     public int SS;
     public int MS;
     public int MM;
@@ -47,6 +46,14 @@ public class Time implements time {
     // comparison
     public boolean greaterThan(Time other){
         return this.getTotalMS() > other.getTotalMS();
+    }
+
+    public boolean greaterThanOrEq(Time other){
+        return this.getTotalMS() >= other.getTotalMS();
+    }
+
+    public boolean lesserThanOrEq(Time other){
+        return this.getTotalMS() <= other.getTotalMS();
     }
 
     public boolean equals(Time other){
