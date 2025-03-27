@@ -59,8 +59,24 @@ public class SubtitleSeq implements iSubtitleSeq {
 
         return retList;
     }
-    void remove(String str){}
-    void replace(String str1, String str2){}
+
+    public void remove(String searchText){
+        List<Subtitle> toRemove = this.getSubtitles(searchText);
+
+        for (Subtitle subtitle : toRemove) {
+            sequence.remove(subtitle);
+        }
+    }
+
+    public void replace(String findStr, String replaceStr){
+
+        for (int i = 0; i < sequence.size(); i++){
+            if (sequence.get(i).getText().equals(findStr)){
+                sequence.get(i).setText(replaceStr);
+            }
+        }
+    }
+
     void shift(int offset){}
     void cut(iTime startTime, iTime endTime){}
 }
