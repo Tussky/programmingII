@@ -30,18 +30,21 @@ public class SubtitleSeq implements iSubtitleSeq {
         return null;
     }
 
+    public List<Subtitle> getSubtitles(Time startTime, Time endTime){
+        List<Subtitle> retList = new ArrayList<Subtitle>();
 
-    // public Subtitle getSubtitle(Time benchmark){
-    //     List<Subtitle> retList = new ArrayList<Subtitle>();
+        for(int i = 0; i < sequence.size(); i++){
+            Subtitle currentSubtitle = sequence.get(i);
 
-    //     for(int i = 0; i < sequence.size(); i++){
-    //         Subtitle currentSubtitle = sequence.get(i);
-
-    //         if (currentSubtitle.getStartTime().greaterThanOrEq(benchmark)) {
-    //             retList.add(currentSubtitle);
-    //         }
-    //     }
-    // }
+            if (startTime.lesserThanOrEq(currentSubtitle.getStartTime())) {
+                retList.add(currentSubtitle);
+            }
+            if (endTime.greaterThanOrEq(currentSubtitle.getEndTime())) {
+                retList.add(currentSubtitle);
+            }
+        }
+        return retList;
+    }
 
     List<iSubtitle> getSubtitles(iTime StartTime, iTime endTime){}
     void remove(String str){}
