@@ -17,8 +17,8 @@ public class SubtitleSeq implements iSubtitleSeq {
     }
 
     public Subtitle getSubtitle(Time time){
-        for(int i = 0; i < sequence.size(); i++){
-            Subtitle currentSubtitle = sequence.get(i);
+        for(int i = 0; i < this.sequence.size(); i++){
+            Subtitle currentSubtitle = this.sequence.get(i);
 
             if (currentSubtitle.getStartTime().equals(time)) {
                 return currentSubtitle;
@@ -33,8 +33,8 @@ public class SubtitleSeq implements iSubtitleSeq {
     public List<Subtitle> getSubtitles(Time startTime, Time endTime){
         List<Subtitle> retList = new ArrayList<Subtitle>();
 
-        for(int i = 0; i < sequence.size(); i++){
-            Subtitle currentSubtitle = sequence.get(i);
+        for(int i = 0; i < this.sequence.size(); i++){
+            Subtitle currentSubtitle = this.sequence.get(i);
 
             if (startTime.lesserThanOrEq(currentSubtitle.getStartTime())) {
                 retList.add(currentSubtitle);
@@ -46,7 +46,19 @@ public class SubtitleSeq implements iSubtitleSeq {
         return retList;
     }
 
-    List<iSubtitle> getSubtitles(iTime StartTime, iTime endTime){}
+    List<Subtitle> getSubtitles(String searchText){
+        List<Subtitle> retList = new ArrayList<Subtitle>();
+
+        for(int i = 0; i < this.sequence.size(); i++){
+            Subtitle currentSubtitle = this.sequence.get(i);
+
+            if (currentSubtitle.getText().contains(searchText)){
+                retList.add(currentSubtitle);
+            }
+        }
+
+        return retList;
+    }
     void remove(String str){}
     void replace(String str1, String str2){}
     void shift(int offset){}
