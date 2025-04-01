@@ -1,7 +1,9 @@
 package foo;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
@@ -51,7 +53,26 @@ public class Main {
         for (int i = 0; i < questions.length(); i++) {
             JSONObject question = questions.getJSONObject(i);
             System.out.println(question.getString("question"));
+            System.out.println("CORRECT ANSWER "+question.getString("correct_answer"));
+            System.out.println("INCORRECT ANSWERS "+question.getJSONArray("incorrect_answers"));
         }
 
+        Quiz quiz = new Quiz();
+        
+        for (int i = 0; i < questions.length(); i++){
+            JSONObject questionJSON = questions.getJSONObject(i);
+
+            ArrayList<String> options = new ArrayList<String>();
+            JSONArray jsonOptions = questionJSON.getJSONArray("incorrect_answers");
+
+            for (int j = 0; j < jsonOptions.length(); j++) {
+                options.set(j, jsonOptions.getString(j));
+            }
+
+            quiz.addQuestion(questionJSON.getString("question"),
+                            questionJSON.getString("correct_answer"),
+                            options);
+        }
+        
     }
 }
