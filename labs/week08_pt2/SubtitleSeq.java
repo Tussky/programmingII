@@ -77,6 +77,29 @@ public class SubtitleSeq implements iSubtitleSeq {
         }
     }
 
-    void shift(int offset){}
+    public void shift(int offset){
+
+    int hours = offset / (1000 * 60 * 60);
+    int minutes = (offset % (1000 * 60 * 60)) / (1000 * 60);
+    int seconds = (offset % (1000 * 60)) / 1000;
+    int millis = offset % 1000;
+
+    for (int i = 0; i < this.sequence.size(); i++) {
+        Subtitle currentSubtitle = this.sequence.get(i);
+
+        Time oldStartTime = currentSubtitle.getStartTime();
+        Time oldEndTime =currentSubtitle.getEndTime();
+
+        Time newStartTime = new Time(oldStartTime.getMM()+millis,oldStartTime.getSS() + seconds,
+                                    oldStartTime.getMM()+minutes, oldStartTime.getHH()+hours);
+        Time newEndTime = new Time(oldEndTime.getMM()+millis,oldEndTime.getSS() + seconds,
+                                    oldEndTime.getMM()+minutes, oldEndTime.getHH()+hours);
+
+        currentSubtitle.setEndTime(newEndTime);
+        currentSubtitle.setStartTime(newStartTime);
+
+        this.sequence.set(i, currentSubtitle);
+        }
+    }
     void cut(iTime startTime, iTime endTime){}
 }

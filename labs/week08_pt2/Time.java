@@ -59,6 +59,5 @@ public class Time implements iTime {
     public boolean equals(Time other){
         return this.getTotalMS() == this.getTotalMS();
     }
-    
 
 }
