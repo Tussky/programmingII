@@ -28,6 +28,4 @@ public class Subtitle implements iSubtitle{
     public void setText(String str) {
         this.text = str;
     }
-
-    
 }
