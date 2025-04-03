@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
+import java.lang.reflect.Array;
 
 public class Quiz {
     private int score;
@@ -12,18 +13,26 @@ public class Quiz {
     private boolean continueQuiz;
     private String questionDir;
 
+    // if reading in a from a file.
     public Quiz(String dir) {
         this.questionDir = dir;
         this.score = 0;
         this.questions = new ArrayList<Question>();
+    }
 
-        this.getQuestions();
-        this.beginQuiz();
-
+    // if adding in questions manually.
+    public Quiz() {
+        this.score = 0;
+        this.questionDir = null;
     }
 
     public void setQuestionsLoc(String dir){
         this.questionDir = dir;
+    }
+
+    public void addQuestion(String question, String answer, ArrayList<String> options){
+        Question toAdd = new Question(question, answer, options);
+        questions.add(toAdd);
     }
 
     public void getQuestions(){
