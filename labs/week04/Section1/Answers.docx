@@ -1,0 +1,24 @@
+﻿Questions for Task 1:
+    • When the method speak() is called on the Dog Object the Dog object checks whether is not it has a method speak() before checking the inherited method. In this case it does, speak() has been overridden so this method is accessed which is why the output is “Dog Barks.”
+    • Method overriding is achieved here as Dog has an overridden method speak(), meaning the inherited method is overridden and the overridden method is what returns "Dog barks."
+
+Questions for Task 2:
+    • Overloading differs from overridding in that method overloading is used to give the same method multiple different implementations depending on what series of parameters are entered in. In this way, overloaded methods are belong to one class, whereas overloaded methods rewrite what is inherited to the specific class.
+    • I can call the overloaded speak() method in the Dog class by calling speak() but adding a String parameter with the sound I want the dog to make.
+
+Questions for Task 3:
+    • Within the Dog Class, the "this" keyword can be used to access Dog's own methods or attributes. 
+    • Super differs from this in that super can access the parent class methods or attributes, whereas this can only access Dog's class attributes.
+
+Questions for Task 4:
+    • super.speak() calls the Dog's parent class method speak() which returns "Animal makes a sound."
+    • I would use 'super()' or 'super.' when I know the parent's behaviour is also what I want in the subclass behavior. Following on from this, I would also use it if I wanted the subclass to do the same behaviour and then add on to it after I have called the super keyword.
+
+Questions for Task 5: 
+    • PROGRAM output
+        Animal makes a sound.
+        Dog Barks.
+        Animal makes sound: AAAAAH
+        Dog age: 4 | Dog Name: rupert
+        Animal age: 10 | Animal name: bernie
+    • The speak method for class animal just prints "Animal makes a sound", whereas for Dog it says "Dog barks". 
