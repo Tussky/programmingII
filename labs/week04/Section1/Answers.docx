@@ -1,6 +1,6 @@
 ﻿Questions for Task 1:
     • When the method speak() is called on the Dog Object the Dog object checks whether is not it has a method speak() before checking the inherited method. In this case it does, speak() has been overridden so this method is accessed which is why the output is “Dog Barks.”
-    • Method overriding is achieved here as Dog has an overridden method speak(), meaning the inherited method is overridden and the overridden method is what returns "Dog barks."
+    • Method overriding is achieved here as Dog has an overridden method speak(); meaning the child class (dog) inherited a speak method, but we also defined a method for class dog – hence it is overriden.
 
 Questions for Task 2:
     • Overloading differs from overridding in that method overloading is used to give the same method multiple different implementations depending on what series of parameters are entered in. In this way, overloaded methods are belong to one class, whereas overloaded methods rewrite what is inherited to the specific class.
@@ -16,9 +16,9 @@ Questions for Task 4:
 
 Questions for Task 5: 
     • PROGRAM output
-        Animal makes a sound.
-        Dog Barks.
-        Animal makes sound: AAAAAH
-        Dog age: 4 | Dog Name: rupert
-        Animal age: 10 | Animal name: bernie
+       Animal makes a sound.
+   Dog Barks.
+   Animal makes sound: AAAAAH
+   Dog age: 4 | Dog Name: rupert
+   Animal age: 10 | Animal name: bernie
     • The speak method for class animal just prints "Animal makes a sound", whereas for Dog it says "Dog barks". 
